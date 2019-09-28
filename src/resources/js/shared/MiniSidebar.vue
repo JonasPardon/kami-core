@@ -53,7 +53,7 @@
             justify-content: center;
             align-items: center;
             color: #F2F4F8;
-            height: 7rem;
+            height: 4rem;
             width: 100%;
             /*margin: 1rem 0;*/
             padding-top: 1.5rem;
