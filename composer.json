@@ -1,24 +1,31 @@
 {
-    "name": "jonaspardon/kami-core",
-    "description": "Core package of Kami CMS",
-    "type": "project",
-    "license": "GNU GPLv3",
-    "authors": [
-        {
-            "name": "Jonas Pardon",
-            "email": "jonaspardon@hotmail.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "require": {
-        "inertiajs/inertia-laravel": "^0.1.3",
-        "optix/media": "^0.2.4",
-        "spatie/laravel-permission": "^3.0",
-        "spatie/laravel-sluggable": "^2.2"
-    },
-    "autoload": {
-        "psr-4": {
-            "JonasPardon\\KamiCMS\\": "src/"
-        }
+  "name": "jonaspardon/kami-core",
+  "description": "Core package of Kami CMS",
+  "type": "project",
+  "license": "GNU GPLv3",
+  "authors": [
+    {
+      "name": "Jonas Pardon",
+      "email": "jonaspardon@hotmail.com"
     }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "inertiajs/inertia-laravel": "^0.1.3",
+    "optix/media": "^0.2.4",
+    "spatie/laravel-permission": "^3.0",
+    "spatie/laravel-sluggable": "^2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "JonasPardon\\KamiCore\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "JonasPardon\\KamiCore\\ServiceProvider"
+      ]
+    }
+  }
 }
