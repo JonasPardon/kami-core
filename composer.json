@@ -1,0 +1,19 @@
+{
+    "name": "jonaspardon/kami-core",
+    "description": "Core package of Kami CMS",
+    "type": "project",
+    "license": "GNU GPLv3",
+    "authors": [
+        {
+            "name": "Jonas Pardon",
+            "email": "jonaspardon@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "JonasPardon\\KamiCMS\\": "src/"
+        }
+    }
+}
