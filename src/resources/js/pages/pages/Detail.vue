@@ -8,7 +8,7 @@
             </div>
 
             <div class="btn-page-action">
-                <custom-btn @click="saveSettings" icon="save">Save</custom-btn>
+                <custom-btn @click="savePage" icon="save">Save</custom-btn>
             </div>
         </div>
 
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-    import toastMixin from "./../../mixins/toastMixin";
+    import toastMixin from "@kami-core/mixins/toastMixin";
 
     export default  {
         name: 'page-detail',
@@ -71,7 +71,7 @@
         },
 
         methods: {
-            async saveSettings() {
+            savePage() {
                 const url = this.isCreate ? '/admin/pages' : `/admin/pages/${this.page.id}`;
 
                 axios.post(url, this.page)

@@ -56,7 +56,7 @@
         },
 
         methods: {
-            async saveSettings() {
+            saveSettings() {
                 axios.post('/admin/settings', this.settings)
                     .then(response => {
                         this.successToast('Successfully saved');
