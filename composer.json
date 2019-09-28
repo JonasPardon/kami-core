@@ -10,7 +10,12 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "inertiajs/inertia-laravel": "^0.1.3",
+        "optix/media": "^0.2.4",
+        "spatie/laravel-permission": "^3.0",
+        "spatie/laravel-sluggable": "^2.2"
+    },
     "autoload": {
         "psr-4": {
             "JonasPardon\\KamiCMS\\": "src/"
