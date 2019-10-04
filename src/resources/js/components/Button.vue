@@ -59,6 +59,7 @@
             box-shadow: 0 1px 3px rgba(0,0,0,.1);
             border-radius: .8rem;
             outline: none;
+            cursor: pointer!important;
             transition: .2s all ease;
 
             svg {
@@ -83,10 +84,6 @@
                     background-color: rgba(231, 76, 60, .9);
                 }
             }
-        }
-
-        &:hover {
-            cursor: pointer;
         }
     }
 </style>

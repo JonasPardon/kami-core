@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 
 class PreviewDefinerService
 {
-    protected $defaultView = 'page';
+    protected $defaultView = 'pages.page';
 
     /**
      * @param array $data
@@ -59,7 +59,7 @@ class PreviewDefinerService
     }
 
     protected function getPageView(array $data) {
-        return 'page';
+        return 'pages.page';
     }
 
     /**
