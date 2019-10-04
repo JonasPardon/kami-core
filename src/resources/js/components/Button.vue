@@ -84,5 +84,9 @@
                 }
             }
         }
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 </style>
