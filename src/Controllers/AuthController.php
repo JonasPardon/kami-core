@@ -3,6 +3,8 @@
 namespace JonasPardon\KamiCore\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
+use JonasPardon\KamiCore\Models\User;
 use JonasPardon\KamiCore\Repositories\UserRepository;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -31,12 +33,13 @@ class AuthController extends Controller
         $credentials = request()->all();
 
         if (Auth::attempt($credentials)) {
+            Session::put('test', 'test');
             return response()->json(Auth::user());
-        } else {
-            return response()->json([
-                'error' => 'Incorrect credentials',
-            ]);
         }
+
+        return response()->json([
+            'error' => 'Incorrect credentials',
+        ]);
     }
 
     /**

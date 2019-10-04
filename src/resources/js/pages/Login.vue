@@ -1,19 +1,21 @@
 <template>
     <div class="login">
         <div class="login__modal">
-            <div class="login__modal__row">
-                <label for="email">E-mail</label>
-                <input type="text" v-model="email" id="email" name="email">
-            </div>
+            <form @submit.prevent="submitLogin">
+                <div class="login__modal__row">
+                    <label for="email">E-mail</label>
+                    <input type="text" v-model="email" id="email" name="email">
+                </div>
 
-            <div class="login__modal__row">
-                <label for="password">Password</label>
-                <input type="password" v-model="password" id="password" name="password">
-            </div>
+                <div class="login__modal__row">
+                    <label for="password">Password</label>
+                    <input type="password" v-model="password" id="password" name="password">
+                </div>
 
-            <div class="login__modal__row">
-                <custom-btn icon="chevron-right" @click="submitLogin">Login</custom-btn>
-            </div>
+                <div class="login__modal__row">
+                    <custom-btn icon="chevron-right">Login</custom-btn>
+                </div>
+            </form>
         </div>
     </div>
 </template>
