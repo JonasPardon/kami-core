@@ -21,6 +21,12 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
+    axios.defaults.headers.common = {
+        'X-CSRF-TOKEN': laravel.csrfToken,
+    };
+
     export default {
         name: 'login',
 
@@ -41,6 +47,7 @@
                         this.$inertia.visit('/admin/');
                     }
                 }).catch(err => {
+                    console.log(err);
                     // this.$inertia.visit('/admin/');
                 });
             }

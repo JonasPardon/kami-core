@@ -1,9 +1,11 @@
 <?php
 
-Route::get('/admin/login', 'JonasPardon\KamiCore\Controllers\AuthController@showLogin')->name('login');
-Route::post('/admin/login', 'JonasPardon\KamiCore\Controllers\AuthController@submitLogin');
+Route::group(['middleware' => ['guest', 'web']], function() {
+    Route::get('/admin/login', 'JonasPardon\KamiCore\Controllers\AuthController@showLogin')->name('login');
+    Route::post('/admin/login', 'JonasPardon\KamiCore\Controllers\AuthController@submitLogin')->name('auth.login');
+});
 
-Route::group(['middleware' => 'auth:web'], function() {
+Route::group(['middleware' => ['web']], function() {
     Route::get('/admin', 'JonasPardon\KamiCore\Controllers\HomeController@index')->name('admin.home');
 
     Route::get('/admin/auth/users', 'JonasPardon\KamiCore\Controllers\AuthController@usersIndex');

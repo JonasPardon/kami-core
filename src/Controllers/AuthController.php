@@ -3,6 +3,7 @@
 namespace JonasPardon\KamiCore\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Session;
 use JonasPardon\KamiCore\Models\User;
 use JonasPardon\KamiCore\Repositories\UserRepository;
@@ -11,7 +12,11 @@ use Inertia\Inertia;
 
 class AuthController extends Controller
 {
+    use AuthenticatesUsers;
+
     protected $userRepository;
+
+    protected $redirectTo = '/admin';
 
     /**
      * AuthController constructor.
@@ -33,8 +38,9 @@ class AuthController extends Controller
         $credentials = request()->all();
 
         if (Auth::attempt($credentials)) {
-            Session::put('test', 'test');
-            return response()->json(Auth::user());
+//            Session::put('user', Auth::user());
+            return Auth::user();
+            return redirect()->route('admin.home');
         }
 
         return response()->json([
