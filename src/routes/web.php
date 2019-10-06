@@ -28,7 +28,3 @@ Route::group(['middleware' => ['web', JonasPardon\KamiCore\Middleware\CustomAuth
 
     Route::post('/admin/preview', 'JonasPardon\KamiCore\Controllers\PreviewController@show');
 });
-
-Route::get('/test', function() {
-    dd(Auth::user());
-});
