@@ -5,8 +5,10 @@ Route::group(['middleware' => ['guest', 'web']], function() {
     Route::post('/admin/login', 'JonasPardon\KamiCore\Controllers\AuthController@submitLogin')->name('auth.login');
 });
 
-Route::group(['middleware' => ['web']], function() {
+Route::group(['middleware' => ['web', JonasPardon\KamiCore\Middleware\CustomAuth::class]], function() {
     Route::get('/admin', 'JonasPardon\KamiCore\Controllers\HomeController@index')->name('admin.home');
+
+    Route::get('/admin/logout', 'JonasPardon\KamiCore\Controllers\AuthController@logout')->name('logout');
 
     Route::get('/admin/auth/users', 'JonasPardon\KamiCore\Controllers\AuthController@usersIndex');
     Route::get('/admin/auth/users/new', 'JonasPardon\KamiCore\Controllers\AuthController@usersCreate');
@@ -27,3 +29,6 @@ Route::group(['middleware' => ['web']], function() {
     Route::post('/admin/preview', 'JonasPardon\KamiCore\Controllers\PreviewController@show');
 });
 
+Route::get('/test', function() {
+    dd(Auth::user());
+});

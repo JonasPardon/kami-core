@@ -20,7 +20,7 @@
         </div>
 
         <div class="mini-sidebar__bottom">
-            <div class="mini-sidebar__profile">
+            <div class="mini-sidebar__profile" @click="logout">
                 <font-awesome-icon icon="user-alt" />
             </div>
         </div>
@@ -31,6 +31,12 @@
 <script>
     export default {
         name: 'mini-sidebar',
+
+        methods: {
+            logout() {
+                window.location = '/admin/logout';
+            }
+        }
     }
 </script>
 

@@ -38,14 +38,19 @@ class AuthController extends Controller
         $credentials = request()->all();
 
         if (Auth::attempt($credentials)) {
-//            Session::put('user', Auth::user());
             return Auth::user();
-            return redirect()->route('admin.home');
+//            return redirect()->route('admin.home');
         }
 
         return response()->json([
             'error' => 'Incorrect credentials',
         ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 
     /**

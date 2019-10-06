@@ -39,7 +39,6 @@ class ServiceProvider extends BaseServiceProvider
             'auth' => function () {
                 return [
                     'user' => Auth::user(),
-                    'test' => Session::get('user'),
                 ];
             },
         ]);
