@@ -2,7 +2,7 @@
     <layout>
         <template v-if="noContent">
             <h1 class="title">
-                Dashboard
+                Dashboard - {{ $page.auth.user ? $page.auth.user.name : 'No user' }}
             </h1>
 
             <div class="no-content">
@@ -29,6 +29,10 @@
             return {
                 noContent: true,
             }
+        },
+
+        mounted() {
+            console.log(this.$page);
         }
     }
 </script>
