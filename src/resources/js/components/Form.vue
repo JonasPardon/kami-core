@@ -90,6 +90,7 @@
             &__label {
                 text-align: right;
                 padding-right: 1rem;
+                padding-top: 2rem;
             }
 
             &__value {

@@ -90,7 +90,6 @@
         font-size: 2rem;
         font-weight: 600;
         margin-bottom: 1.5rem;
-        font-weight: unset;
     }
 
     .page-actions {
@@ -124,7 +123,7 @@
     }
 
     input[type=text], input[type=password] {
-        padding: .5rem;
+        padding: 1rem .5rem;
         border: .5px solid rgba(57, 64, 73, .3);
         border-radius: .5rem;
         outline: none;

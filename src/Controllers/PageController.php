@@ -3,6 +3,7 @@
 namespace JonasPardon\KamiCore\Controllers;
 
 use App\Http\Controllers\Controller;
+use JonasPardon\KamiCore\Models\Block;
 use JonasPardon\KamiCore\Repositories\PageRepository;
 use Inertia\Inertia;
 
@@ -85,6 +86,19 @@ class PageController extends Controller
         $page = $this->pageRepository
             ->update($id, $data);
 
+        $this->syncBlocks($page, $data);
+
         return response()->json($page, 200);
+    }
+
+    private function syncBlocks($page, $data)
+    {
+        $blocks = [];
+        foreach($data['blocks'] as $i => $block) {
+            $blocks[] = new Block($block);
+        }
+
+        $page->blocks()->delete();
+        $page->blocks()->saveMany($blocks);
     }
 }
