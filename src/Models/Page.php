@@ -5,6 +5,7 @@ namespace JonasPardon\KamiCore\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\HtmlString;
+use JonasPardon\KamiCore\Helpers\PageHelper;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -40,7 +41,14 @@ class Page extends Model
 
     public function getParsedBodyAttribute()
     {
-        $parseDown = new \Parsedown();
-        return new HtmlString($parseDown->text($this->attributes['body']));
+        return PageHelper::parseToHtml($this);
+
+
+        return;
+    }
+
+    public function blocks()
+    {
+        return $this->hasMany(Block::class);
     }
 }

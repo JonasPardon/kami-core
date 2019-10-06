@@ -14,6 +14,14 @@
 
         <custom-form v-model="page" :fields="pageFields" />
 
+        <h2 class="subtitle">Content Blocks</h2>
+
+        <div class="page-blocks">
+            <div class="page-blocks__block" v-for="(block, index) in page.blocks">
+                <kami-block v-model="page.blocks[index]" />
+            </div>
+        </div>
+
         <div :class="{preview: true, active: preview !== null}">
             <div class="preview__header">
                 <p>Page preview</p>
@@ -27,6 +35,7 @@
 
 <script>
     import toastMixin from "@kami-core/mixins/toastMixin";
+    import Block from '@kami-core/components/page/Block';
 
     export default  {
         name: 'page-detail',
@@ -34,6 +43,10 @@
         mixins: [
             toastMixin,
         ],
+
+        components: {
+            'kami-block': Block,
+        },
 
         props: {
             data: {
@@ -67,6 +80,7 @@
             } else {
                 this.page = this.data;
                 this.title = this.page.title;
+                this.pageFields.push({label: 'Slug', key: 'slug', type: 'string'});
             }
         },
 

@@ -24,6 +24,7 @@ class PageRepository extends EloquentRepository
     public function showById($id)
     {
         return $this->model
+            ->with('blocks')
             ->where('id', $id)
             ->first();
     }

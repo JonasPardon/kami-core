@@ -2,7 +2,7 @@
     <layout>
         <template v-if="noContent">
             <h1 class="title">
-                Dashboard - {{ $page.auth.user ? $page.auth.user.name : 'No user' }}
+                Dashboard
             </h1>
 
             <div class="no-content">
@@ -30,10 +30,6 @@
                 noContent: true,
             }
         },
-
-        mounted() {
-            console.log(this.$page);
-        }
     }
 </script>
 
@@ -43,7 +39,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 100%;
 
         &__text {
             text-align: center;
